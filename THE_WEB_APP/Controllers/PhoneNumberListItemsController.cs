@@ -13,6 +13,14 @@ namespace THE_WEB_APP.Controllers
     [ApiController]
     public class PhoneNumberListItemsController : ControllerBase
     {
+        private BusinessLogicLayer.PhoneNumberBLL _BLL;
+        public PhoneNumberListItemsController() 
+        {
+        
+           _BLL = new BusinessLogicLayer.PhoneNumberBLL();
+        
+        
+        }
         private readonly PhoneNumberListContext _context;
 
         public PhoneNumberListItemsController(PhoneNumberListContext context)
@@ -24,11 +32,7 @@ namespace THE_WEB_APP.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PhoneNumberListItem>>> GetPhoneNumberListItems()
         {
-          if (_context.PhoneNumberListItems == null)
-          {
-              return NotFound();
-          }
-            return await _context.PhoneNumberListItems.ToListAsync();
+             return
         }
 
         // GET: api/PhoneNumberListItems/5
